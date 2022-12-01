@@ -159,7 +159,7 @@ dig barriosesamo.icv MX
 #   --> exit
 
 # Comprobar con el comando dig
-# dig @IP(SERVIDOR NOMBRES QUE CONTESTA LA CONSULTA) NOMBRE-EQUIPO.ZONA
+# dig @IP(SERVIDOR NOMBRES) RECURSO(NOMBRE-EQUIPO.ZONA) TIPO-RECURSO(A POR DEFECTO)
 
 # Comprobar con el comando host
 # host NOMBRE-EQUIPO.ZONA(ZONA DIRECTA)
