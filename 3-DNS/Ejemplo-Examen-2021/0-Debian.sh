@@ -28,7 +28,7 @@ echo ""                                          >> /etc/bind/named.conf.local
 echo 'zone "hierro.juegodetronos.icv" {'          >> /etc/bind/named.conf.local
 echo "      type slave;"                          >> /etc/bind/named.conf.local
 echo '      file "db.hierro.juegodetronos.icv"; ' >> /etc/bind/named.conf.local
-echo '      masters {10.8.0.4;}; '                >> /etc/bind/named.conf.local
+echo '      masters {10.8.0.3;}; '                >> /etc/bind/named.conf.local
 echo "};"                                         >> /etc/bind/named.conf.local
 
 named-checkconf

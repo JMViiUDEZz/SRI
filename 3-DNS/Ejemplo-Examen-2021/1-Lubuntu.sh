@@ -23,17 +23,17 @@ echo ""                                                 >> /etc/bind/named.conf.
 
 echo ";"                                                        >  /etc/bind/db.juegodetronos.icv 
 echo '"$TTL"    86400'                                          >> /etc/bind/db.juegodetronos.icv
-echo "@     IN  SOA  ns1.juegodetronos.icv.  jose.  ("          >> /etc/bind/db.juegodetronos.icv
+echo "@     IN  SOA  dns1.juegodetronos.icv.  jose.  ("         >> /etc/bind/db.juegodetronos.icv
 echo "                       1   ; Serial"                      >> /etc/bind/db.juegodetronos.icv 
 echo "                   43200   ; Refresh"                     >> /etc/bind/db.juegodetronos.icv 
 echo "                   86400   ; Retry"                       >> /etc/bind/db.juegodetronos.icv 
 echo "                 2419200   ; Expire"                      >> /etc/bind/db.juegodetronos.icv
 echo "                   21600 ) ; Negative Cache TTL"          >> /etc/bind/db.juegodetronos.icv
 echo ";"                                                        >> /etc/bind/db.juegodetronos.icv
-echo "@        IN  NS       ns1.juegodetronos.icv."             >> /etc/bind/db.juegodetronos.icv
-echo "@        IN  NS       ns2.juegodetronos.icv."             >> /etc/bind/db.juegodetronos.icv
-echo "ns1      IN  A        10.8.0.2"                           >> /etc/bind/db.juegodetronos.icv
-echo "ns2      IN  A        10.8.0.3"                           >> /etc/bind/db.juegodetronos.icv
+echo "@        IN  NS       dns1.juegodetronos.icv."            >> /etc/bind/db.juegodetronos.icv
+echo "@        IN  NS       dns2.juegodetronos.icv."            >> /etc/bind/db.juegodetronos.icv
+echo "dns1     IN  A        10.8.0.2"                           >> /etc/bind/db.juegodetronos.icv
+echo "dns2     IN  A        10.8.0.4"                           >> /etc/bind/db.juegodetronos.icv
 echo "robert   IN  A        10.8.0.101"                         >> /etc/bind/db.juegodetronos.icv
 echo "cersei   IN  A        10.8.0.102"                         >> /etc/bind/db.juegodetronos.icv
 echo "www      IN  CNAME    robert.juegodetronos.icv."          >> /etc/bind/db.juegodetronos.icv
@@ -48,24 +48,24 @@ echo "jon.invernalia        IN  A    10.8.1.102"                >> /etc/bind/db.
 ###################################################
 #######---------- DELEGACIÓN --------------########
 ###################################################
-echo "hierro.juegodetronos.icv.       IN  NS  ns1.hierro.juegodetronos.icv."    >> /etc/bind/db.juegodetronos.icv
-echo "hierro.juegodetronos.icv.       IN  NS  ns2.hierro.juegodetronos.icv."    >> /etc/bind/db.juegodetronos.icv
-echo "ns1.hierro.juegodetronos.icv.   IN  A   10.8.0.4"                         >> /etc/bind/db.juegodetronos.icv
-echo "ns2.hierro.juegodetronos.icv.   IN  A   10.8.0.3"                         >> /etc/bind/db.juegodetronos.icv
+echo "hierro.juegodetronos.icv.       IN  NS  dns1.hierro.juegodetronos.icv."    >> /etc/bind/db.juegodetronos.icv
+echo "hierro.juegodetronos.icv.       IN  NS  dns2.hierro.juegodetronos.icv."    >> /etc/bind/db.juegodetronos.icv
+echo "dns1.hierro.juegodetronos.icv.   IN  A   10.8.0.3"                         >> /etc/bind/db.juegodetronos.icv
+echo "dns2.hierro.juegodetronos.icv.   IN  A   10.8.0.4"                         >> /etc/bind/db.juegodetronos.icv
 
 # ! * ZONA INVERSA * #
 
 echo ";"                                                          >  /etc/bind/db.10.8
 echo '"$TTL"    86400'                                            >> /etc/bind/db.10.8
-echo "@     IN  SOA  ns1.juegodetronos.icv.  jose.  ("            >> /etc/bind/db.10.8
+echo "@     IN  SOA  dns1.juegodetronos.icv.  jose.  ("           >> /etc/bind/db.10.8
 echo "                       1   ; Serial"                        >> /etc/bind/db.10.8
 echo "                  604800   ; Refresh"                       >> /etc/bind/db.10.8
 echo "                   86400   ; Retry"                         >> /etc/bind/db.10.8
 echo "                 2419200   ; Expire"                        >> /etc/bind/db.10.8
 echo "                   86400 ) ; Negative Cache TTL"            >> /etc/bind/db.10.8
 echo ";"                                                          >> /etc/bind/db.10.8
-echo "@          IN  NS       ns1.juegodetronos.icv."             >> /etc/bind/db.10.8
-echo "@          IN  NS       ns2.juegodetronos.icv."             >> /etc/bind/db.10.8
+echo "@          IN  NS       dns1.juegodetronos.icv."            >> /etc/bind/db.10.8
+echo "@          IN  NS       dns2.juegodetronos.icv."            >> /etc/bind/db.10.8
 echo "0.101      IN  PTR      robert.juegodetronos.icv."          >> /etc/bind/db.10.8
 echo "0.102      IN  PTR      cersei.juegodetronos.icv."          >> /etc/bind/db.10.8
 echo "1.201      IN  PTR      ned.invernalia.juegodetronos.icv."  >> /etc/bind/db.10.8

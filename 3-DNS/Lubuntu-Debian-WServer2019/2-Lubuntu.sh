@@ -157,10 +157,3 @@ dig barriosesamo.icv MX
 #   --> set type=MX 
 #   --> barriosesamo.icv
 #   --> exit
-
-# Comprobar con el comando dig
-# dig @IP(SERVIDOR NOMBRES) RECURSO(NOMBRE-EQUIPO.ZONA) TIPO-RECURSO(A POR DEFECTO)
-
-# Comprobar con el comando host
-# host NOMBRE-EQUIPO.ZONA(ZONA DIRECTA)
-# host IP-EQUIPO(ZONA INVERSA)

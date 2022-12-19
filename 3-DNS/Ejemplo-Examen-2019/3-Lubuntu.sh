@@ -21,7 +21,7 @@ echo ""                                             >> /etc/bind/named.conf.loca
 ###################################################
 ###---Crear configuracion de la DB de las zonas--##
 ###################################################
-touch /etc/bind/db.asir6
+touch /etc/bind/db.asir8
 
 echo ";"                                                        >  /etc/bind/db.lossimpsons.edu 
 echo '"$TTL"    86400'                                          >> /etc/bind/db.lossimpsons.edu # Tiempo en caché de las respuestas positivas
@@ -58,42 +58,42 @@ echo "ns2.familia.lossimpsons.edu.   IN  A   10.33.8.3"                     >> /
 
 # ! * ZONA INVERSA * #
 
-echo ";"                                                        >  /etc/bind/db.172.16.6
-echo '"$TTL"    86400'                                          >> /etc/bind/db.172.16.6
-echo "@     IN  SOA  ns1.lossimpsons.edu.  jose.  ("            >> /etc/bind/db.172.16.6
-echo "                       1   ; Serial"                      >> /etc/bind/db.172.16.6
-echo "                  604800   ; Refresh"                     >> /etc/bind/db.172.16.6
-echo "                   86400   ; Retry"                       >> /etc/bind/db.172.16.6
-echo "                 2419200   ; Expire"                      >> /etc/bind/db.172.16.6
-echo "                   86400 ) ; Negative Cache TTL"          >> /etc/bind/db.172.16.6
-echo ";"                                                        >> /etc/bind/db.172.16.6
-echo "@        IN  NS       ns1.lossimpsons.edu."               >> /etc/bind/db.172.16.6
-echo "@        IN  NS       ns2.lossimpsons.edu."               >> /etc/bind/db.172.16.6
-echo "101      IN  PTR      homer.lossimpsons.edu."             >> /etc/bind/db.172.16.6
-echo "102      IN  PTR      marge.lossimpsons.edu."             >> /etc/bind/db.172.16.6
-echo "201      IN  PTR      lisa.hijos.lossimpsons.edu."        >> /etc/bind/db.172.16.6
-echo "202      IN  PTR      bart.hijos.lossimpsons.edu."        >> /etc/bind/db.172.16.6
-echo "202      IN  PTR      maggie.hijos.lossimpsons.edu."      >> /etc/bind/db.172.16.6
-echo "221      IN  PTR      abraham.familia.lossimpsons.edu."   >> /etc/bind/db.172.16.6
-echo "222      IN  PTR      patty.familia.lossimpsons.edu."     >> /etc/bind/db.172.16.6
+echo ";"                                                        >  /etc/bind/db.172.16.8
+echo '"$TTL"    86400'                                          >> /etc/bind/db.172.16.8
+echo "@     IN  SOA  ns1.lossimpsons.edu.  jose.  ("            >> /etc/bind/db.172.16.8
+echo "                       1   ; Serial"                      >> /etc/bind/db.172.16.8
+echo "                  604800   ; Refresh"                     >> /etc/bind/db.172.16.8
+echo "                   86400   ; Retry"                       >> /etc/bind/db.172.16.8
+echo "                 2419200   ; Expire"                      >> /etc/bind/db.172.16.8
+echo "                   86400 ) ; Negative Cache TTL"          >> /etc/bind/db.172.16.8
+echo ";"                                                        >> /etc/bind/db.172.16.8
+echo "@        IN  NS       ns1.lossimpsons.edu."               >> /etc/bind/db.172.16.8
+echo "@        IN  NS       ns2.lossimpsons.edu."               >> /etc/bind/db.172.16.8
+echo "101      IN  PTR      homer.lossimpsons.edu."             >> /etc/bind/db.172.16.8
+echo "102      IN  PTR      marge.lossimpsons.edu."             >> /etc/bind/db.172.16.8
+echo "201      IN  PTR      lisa.hijos.lossimpsons.edu."        >> /etc/bind/db.172.16.8
+echo "202      IN  PTR      bart.hijos.lossimpsons.edu."        >> /etc/bind/db.172.16.8
+echo "202      IN  PTR      maggie.hijos.lossimpsons.edu."      >> /etc/bind/db.172.16.8
+echo "221      IN  PTR      abraham.familia.lossimpsons.edu."   >> /etc/bind/db.172.16.8
+echo "222      IN  PTR      patty.familia.lossimpsons.edu."     >> /etc/bind/db.172.16.8
 
 ###################################################
 #######---------- DELEGACIÓN --------------########
 ###################################################
 # * Hay que comentar los reenviadores (/etc/bind/named.conf.options) para que la delegación funcione * #
 
-echo "options {"                            >  /etc/bind/named.conf.options
+echo "options {"                              >  /etc/bind/named.conf.options
 echo "        directory \"/var/cache/bind\";" >> /etc/bind/named.conf.options
-echo ""                                     >> /etc/bind/named.conf.options
-echo "//        forwarders {"               >> /etc/bind/named.conf.options
-echo "//                8.8.8.8;"           >> /etc/bind/named.conf.options
-echo "//                1.1.1.1;"           >> /etc/bind/named.conf.options
-echo "//        };"                         >> /etc/bind/named.conf.options
-echo ""                                     >> /etc/bind/named.conf.options
-echo "        dnssec-validation auto;"      >> /etc/bind/named.conf.options
-echo ""                                     >> /etc/bind/named.conf.options
-echo "        listen-on-v6 { any; };"       >> /etc/bind/named.conf.options
-echo "};"                                   >> /etc/bind/named.conf.options
+echo ""                                       >> /etc/bind/named.conf.options
+echo "//        forwarders {"                 >> /etc/bind/named.conf.options
+echo "//                8.8.8.8;"             >> /etc/bind/named.conf.options
+echo "//                1.1.1.1;"             >> /etc/bind/named.conf.options
+echo "//        };"                           >> /etc/bind/named.conf.options
+echo ""                                       >> /etc/bind/named.conf.options
+echo "        dnssec-validation auto;"        >> /etc/bind/named.conf.options
+echo ""                                       >> /etc/bind/named.conf.options
+echo "        listen-on-v6 { any; };"         >> /etc/bind/named.conf.options
+echo "};"                                     >> /etc/bind/named.conf.options
 
 ###################################################
 ###-----Comprobar zonas directas e inversas-----###
@@ -105,4 +105,4 @@ service bind9 restart
 
 sleep 3
 
-named-checkzone asir6 /etc/bind/db.asir6
+named-checkzone asir8 /etc/bind/db.asir8
